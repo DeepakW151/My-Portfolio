@@ -1,0 +1,19 @@
+# Netlify Configuration File
+# Serves static HTML/CSS/JS from the frontend directory
+
+[build]
+  # No build command needed - this is a static site
+  command = "# Static site - no build needed"
+  publish = "."
+
+# Redirect all routes to index.html for SPA-like behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Disable caching for index.html to ensure fresh load
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "max-age=0, must-revalidate"

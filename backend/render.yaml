@@ -1,0 +1,32 @@
+# Render Configuration File for Backend Deployment
+# This file helps Render automatically configure the deployment
+
+services:
+  - type: web
+    name: my-portfolio-api
+    env: node
+    plan: free
+    
+    # Commands
+    buildCommand: npm install
+    startCommand: npm start
+    
+    # The root directory where server.js is located
+    rootDir: backend
+    
+    # Environment variables to set
+    envVars:
+      - key: DB_HOST
+        scope: all
+      - key: DB_PORT
+        scope: all
+      - key: DB_USER
+        scope: all
+      - key: DB_PASSWORD
+        scope: all
+      - key: DB_NAME
+        scope: all
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
